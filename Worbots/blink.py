@@ -14,9 +14,9 @@ def multi_chase(delay_time=0.02):
         # Set blocks of LEDs with different colors
         for j in range(color_block_size):
             if i + j < 136:
-                np.__setitem__(i + j, (255, 0, 0))   # Red block
-                np.__setitem__((i + j + color_block_size) % 136, (75, 75, 75))   # white block
-                np.__setitem__((i + j + 2 * color_block_size) % 136, (0, 0, 225))   # Blue block
+                np[i + j] = (255, 0, 0)   # Red block
+                np[(i + j + color_block_size) % 136] (255, 255, 255)   # white block
+                np[(i + j + 2 * color_block_size) % 136] (0, 0, 225)   # Blue block
 
         np.write()
         time.sleep(delay_time)
