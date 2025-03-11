@@ -2,7 +2,7 @@ from machine import Pin
 import time
 import neopixel
 
-bness = 1000
+bness = 255
 
 striplen = 156
 np = neopixel.NeoPixel(Pin(28), striplen)
@@ -26,5 +26,5 @@ def main(rest):
             np.write()
             time.sleep(rest)
 
-main(0.01)
+main(0.005)
         
