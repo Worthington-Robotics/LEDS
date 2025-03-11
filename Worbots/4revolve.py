@@ -8,8 +8,8 @@ np = neopixel.NeoPixel(Pin(28), striplen)
 
 
 def main(rest):
-    for i in range(striplen):
-        for j in range(striplen):
+    for i in range(striplen): # i is the first pixel of the first third
+        for j in range(striplen): # j is the individual pixels themeslves
             difference = j - i
             if difference < -(2 * striplen // 3):
                 np[j] = (255, 0, 0) 
