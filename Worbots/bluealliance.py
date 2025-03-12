@@ -12,13 +12,13 @@ while True:
                 np[j] = (225, 225, 225)
             
            elif difference < 156 and difference > 1:
-                np[j] = (255, 0, 0)           
+                np[j] = (0, 0, 255)           
 
            elif difference > -1 and difference < 0:
-               np[j] = (255, 0, 0)
+               np[j] = (0, 0, 255)
 
            elif difference > -156 and difference < -1:
-               np[j] = (255, 0, 0)
+               np[j] = (0, 0, 255)
 
     
 
