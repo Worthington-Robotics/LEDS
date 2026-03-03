@@ -7,7 +7,7 @@ np = neopixel.NeoPixel(Pin(28), striplen)
 button_pin = Pin(18, Pin.IN, Pin.PULL_UP)
 
 
-MODES = [(0, 0, 0), (255, 0, 0), (0, 0, 255)] #off,red,blue
+MODES = [(0, 0, 0), (255, 0, 0), (0, 0, 255), "chase"] #off,red,blue
 state = 0
 i = 0
 last_press = 0
@@ -27,7 +27,7 @@ while True:
         np.fill(bg)
         np.write()
         time.sleep(0.1) 
-    else:
+    elif state in [1,2]:
         np.fill(bg)
         for offset in [0, -1, -2]:
             np[(i + offset) % striplen] = (255, 255, 255)
@@ -35,3 +35,17 @@ while True:
         
         i = (i + 1) % striplen
         time.sleep(0.01)
+
+    elif state == 3:  #Chase mode 
+        for j in range(striplen):
+            if (j + i) % 3 == 0:
+                np[j] = (255, 0, 0)  # Red
+            elif (j + i) % 3 == 1:
+                np[j] = (255, 255, 255)  # White
+            else:
+                np[j] = (0, 0, 255)  # Blue
+        np.write()
+        i = (i + 1) % striplen
+        time.sleep(0.05)  
+
+#TODO figure out why micropython wont run on this project 
